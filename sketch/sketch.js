@@ -1,11 +1,9 @@
 var numBuildings = 100;
 var windowPercent = 0.1;
-var maxSize = 0.3;
+var maxSize = 0.26;
 
-function setup() {
-  createCanvas(400, 400);
-  background("#001437");
 
+function drawBuildings() {
   baseCol = color(0, 0, 0);
   var windowColor = color(150, 2, 100);
   
@@ -40,7 +38,7 @@ function setup() {
     );
     
     // WINDOWS
-    var winWid = max(Math.random() * 5, 1);
+    var winWid = max(Math.random() * 5, 2);
     var winHi = max(Math.random() * 5, 1);
 
 
@@ -63,7 +61,25 @@ function setup() {
     
   }
 }
+function setup() {
+  createCanvas(400, 400);
+  background("#001437");
+  
+  drawBuildings();
+}
 
 function draw() {
-  //ahem. maah! maah! maah!
+  background("rgba(25,25,25,0.01)")
+
+  //stroke("black");
+  fill("red");
+  var t = millis() / 5000;
+  var mag = 100
+  ellipse(
+    sin(t*10)*mag + 0.3*sin(t*92)*mag + width/2,
+    cos(t*10)*mag + 0.2*cos(t*88)*mag + width/2,
+    10,
+    10
+  );
+  
 }
